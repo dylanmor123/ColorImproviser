@@ -11,6 +11,17 @@ window.requestAnimFrame = (function(){
   };
 })();
 
+var white = "#ffffff";
+var red = "#ff0000";
+var orange = "#ff5500";
+var dark_green = "#00802b";
+var light_green = "#33ff77";
+var yellow = "#ffff00";
+var blue = "#0033cc";
+var purple = "#cc33ff";
+var dark_grey = "#666666";
+var light_grey = "#cccccc"
+
 var canvas,
   c, // c is the canvas' context 2D
   container;
@@ -25,14 +36,41 @@ function resetCanvas (e) {
   window.scrollTo(0,0); 
 }
 
+
 function draw() {
   c.clearRect(0,0,canvas.width, canvas.height); 
-  for (var j=0; j<3; j++) {
-    for (var i=0; i<9; i++) {
-      c.fillStyle = "hsl( " + Math.round((360*(j*4+i))/16) + ", 100%, 50%)";
-      c.fillRect( canvas.width * i / 9, canvas.height * j / 3, canvas.width/9, canvas.height/3 );
+  for (var j=0; j<4; j++) {
+    for (var i=0; i<9; i++) { //i = x, j = y
+      if(i==0 || j==3) {
+        c.fillStyle = white;
+      } else if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) {
+        c.fillStyle = red;
+      
+      } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
+        c.fillStyle = orange;
+      } else if (i==7 && j==1) {
+        c.fillStyle = dark_green;
+      } else if ((i==6 && j==0) || (i==3 && j==2)) {
+        c.fillStyle = light_green;
+      } else if ((i==7 && j==0) || (i==1 && j==1) || (i==8 && j==1) || (i==4 && j==2)) {
+        c.fillStyle = yellow;
+      } else if ((i==1 && j==0) || (i==8 && j==0) || (i==2 && j==1) || (i==5 && j==2)) {
+        c.fillStyle = blue;
+      } else if ((i==2 && j==0) || (i==3 && j==1) || (i==6 && j==2)) {
+        c.fillStyle = purple;
+      } else if ((i==4 && j==1) || (i==7 && j==2)) {
+        c.fillStyle = dark_grey;
+      } else if (i==3 && j==0) {
+        c.fillStyle = light_grey;
+      } else {
+      // c.fillStyle = "hsl( " + Math.round((360*(j*4+i))/16) + ", 100%, 50%)";
+      c.fillStyle = blue;
+      
+      }
+      c.fillRect( canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4 );
     }
   }
+
   for(var i=0; i<touches.length; i++)
   {
     var touch = touches[i]; 
