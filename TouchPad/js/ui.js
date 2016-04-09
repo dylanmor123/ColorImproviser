@@ -44,31 +44,31 @@ function draw() {
   var text
   for (var j=0; j<5; j++) {
     for (var i=0; i<9; i++) { //i = x, j = y
-      if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2) || (i==1 && j==4)) {
+      if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2) || (i==1 && j==4) || (i==7 && j==4)) {
         c.fillStyle = red;
         text="C";
-      } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2) || (i==2 && j==4)) {
+      } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
         c.fillStyle = orange;
         text="D";
-      } else if ((i==7 && j==1) || (i==3 && j==4)) {
+      } else if ((i==7 && j==1) || (i==2 && j==4)) {
         c.fillStyle = dark_green;
         text="E\u1d47";
       } else if ((i==6 && j==0) || (i==3 && j==2)) {
         c.fillStyle = light_green;
         text="E";
-      } else if ((i==7 && j==0) || (i==1 && j==1) || (i==8 && j==1) || (i==4 && j==2) || (i==4 && j==4)) {
+      } else if ((i==7 && j==0) || (i==1 && j==1) || (i==8 && j==1) || (i==4 && j==2) || (i==3 && j==4)) {
         c.fillStyle = yellow;
         text="F";
-      } else if ((i==1 && j==0) || (i==8 && j==0) || (i==2 && j==1) || (i==5 && j==2) || (i==6 && j==4)) {
+      } else if ((i==1 && j==0) || (i==8 && j==0) || (i==2 && j==1) || (i==5 && j==2) || (i==5 && j==4)) {
         c.fillStyle = blue;
         text="G";
-      } else if (i==5 && j==4) {
+      } else if (i==4 && j==4) {
         c.fillStyle = light_yellow;
-        text="Fsharp"
+        text="F#"
       } else if ((i==2 && j==0) || (i==3 && j==1) || (i==6 && j==2)) {
         c.fillStyle = purple;
         text="A";
-      } else if ((i==4 && j==1) || (i==7 && j==2)) {
+      } else if ((i==4 && j==1) || (i==7 && j==2) || (i==6 && j==4) || (i==6 && j==4)) {
         c.fillStyle = dark_grey;
         text="B\u1d47";
       } else if (i==3 && j==0) {
@@ -81,7 +81,7 @@ function draw() {
       c.fillStyle = blue;
       }
 
-      if ((!(i==0 || j==3))) {
+      if (!((i==0 || j==3) || (i==8 && j==4))) {
         c.fillRect( canvas.width * i / 9, canvas.height * j / 5, canvas.width/9, canvas.height/5 );
         c.font = "80px Ariel";
         c.fillStyle = black;
@@ -97,6 +97,11 @@ function draw() {
   c.fillText("G\u2077", 100*fontratio, (canvas.height/10)+30);
   c.fillText("F\u2077", 100*fontratio, (canvas.height/10)*3+30);
   c.fillText("C\u2077", 100*fontratio, (canvas.height/10)*5+30);
+  c.font = "20px Ariel";
+  c.fillText("C Blues Scale", 100*fontratio, (canvas.height/10)*9);
+  c.fillText("12-bar Blues",(canvas.width/9)*8+canvas.width*0.01, (canvas.height/10)*9-10);
+  c.fillText("in C",(canvas.width/9)*8+canvas.width*0.04, (canvas.height/10)*9+10);
+  c.font = fontsize.toString() + "px Ariel";
   //c.fillText("       1    2    3   4    5    6   7    1", 100*fontratio, (canvas.height/8)*7);
   fontratio = 55/705
   fontsize = canvas.height * fontratio;
