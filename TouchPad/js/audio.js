@@ -27,13 +27,23 @@ var sounds = {
 	84: '74', // t is D5
 	89: '76', // y is E5
 	85: '77', // u is F5
-	73: '79' // i is G5
+	73: '79', // i is G5
+
+	//C Blues scale, row of numbers (1234567)
+	49: '60', // 1 is C4
+	50: '63', // 2 is Eb4
+	51: '65', // 3 is F4
+	52: '66', // 4 is F#4
+	53: '67', // 5 is G4
+	54: '70', // 6 is Bb4
+	55: '72' // 7 is C5
 }
 
 
 //play background 12-bar blues
 var audio = new Audio('./sounds/blues.wav');
 audio.play();
+
 
 
 document.onkeydown = function(e) {
