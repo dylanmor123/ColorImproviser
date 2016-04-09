@@ -1,42 +1,42 @@
 var sounds = {
 	//C Mixolydian scale; bottom row of letters (and comma) (zxcvbnm,)
-	90: '60', // z is C4
-	88: '62', // x is D4
-	67: '64', // c is E4
-	86: '65', // v is F4
-	66: '67', // b is G4
-	78: '69', // n is A4
-	77: '70', // m is Bb4
-	188: '72', // , is C5
+	90: ['60',false], // z is C4
+	88: ['62',false], // x is D4
+	67: ['64',false], // c is E4
+	86: ['65',false], // v is F4
+	66: ['67',false], // b is G4
+	78: ['69',false], // n is A4
+	77: ['70',false], // m is Bb4
+	188: ['72',false], // , is C5
 
 	//F Mixolydian scale; middle of row of letters (asdfghjk)
-	65: '65', // a is F4
-	83: '67', // s is G4
-	68: '69', // d is A4
-	70: '70', // f is Bb4
-	71: '72', // g is C5
-	72: '74', // h is D5
-	74: '75', // j is Eb5
-	75: '77', // k is F5
+	65: ['65',false], // a is F4
+	83: ['67',false], // s is G4
+	68: ['69',false], // d is A4
+	70: ['70',false], // f is Bb4
+	71: ['72',false], // g is C5
+	72: ['74',false], // h is D5
+	74: ['75',false], // j is Eb5
+	75: ['77',false], // k is F5
 
 	//G Mixolydian scale, top of row of letters (qwertyui)
-	81: '67', // q is G4
-	87: '69', // w is A4
-	69: '71', // e is B4
-	82: '72', // r is C5
-	84: '74', // t is D5
-	89: '76', // y is E5
-	85: '77', // u is F5
-	73: '79', // i is G5
+	81: ['67',false], // q is G4
+	87: ['69',false], // w is A4
+	69: ['71',false], // e is B4
+	82: ['72',false], // r is C5
+	84: ['74',false], // t is D5
+	89: ['76',false], // y is E5
+	85: ['77',false], // u is F5
+	73: ['79',false], // i is G5
 
 	//C Blues scale, row of numbers (1234567)
-	49: '60', // 1 is C4
-	50: '63', // 2 is Eb4
-	51: '65', // 3 is F4
-	52: '66', // 4 is F#4
-	53: '67', // 5 is G4
-	54: '70', // 6 is Bb4
-	55: '72' // 7 is C5
+	49: ['60',false], // 1 is C4
+	50: ['63',false], // 2 is Eb4
+	51: ['65',false], // 3 is F4
+	52: ['66',false], // 4 is F#4
+	53: ['67',false], // 5 is G4
+	54: ['70',false], // 6 is Bb4
+	55: ['72',false] // 7 is C5
 }
 
 
@@ -44,16 +44,43 @@ var sounds = {
 var audio = new Audio('./sounds/blues.wav');
 audio.play();
 
+// var flash90 = false;
+// var flash88 = false;
+// var flash67 = false;
+// var flash86 = false;
+// var flash66 = false;
+// var flash78 = false;
+// var flash77 = false;
+// var flash188 = false;
+
+// var flash65 = false;
+// var flash83 = false;
+// var flash68 = false;
+// var flash70 = false;
+// var flash71 = false;
+// var flash72 = false;
+// var flash74 = false;
+// var flash75 = false;
+
+// var flash81 = false;
+// var flash87 = false;
+// var flash69 = false;
+// var flash82 = false;
+// var flash84 = false;
+// var flash89 = false;
+// var flash85 = false;
+// var flash73 = false;
+
 
 
 document.onkeydown = function(e) {
-    var soundId = sounds[e.keyCode];
+    var soundId = sounds[e.keyCode][0];
     if (soundId) document.getElementById(soundId).play();
     else console.log("key not mapped : code is", e.keyCode);
 }
 
 document.onkeyup = function(e) {
-    var soundId = sounds[e.keyCode];
+    var soundId = sounds[e.keyCode][0];
     if (soundId) {document.getElementById(soundId).pause();
     	document.getElementById(soundId).currentTime = 0}
     else console.log("key not mapped : code is", e.keyCode);

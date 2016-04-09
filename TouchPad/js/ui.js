@@ -45,7 +45,7 @@ function draw() {
     for (var i=0; i<9; i++) { //i = x, j = y
       if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) {
         c.fillStyle = red;
-        text="G";
+        text="C";
       } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
         c.fillStyle = orange;
         text="D";
@@ -77,6 +77,8 @@ function draw() {
 
       if ((!(i==0 || j==3))) {
         c.fillRect( canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4 );
+        // c.fillStyle = white;
+        // c.strokeRect(canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4)
         c.font = "80px Ariel";
         c.fillStyle = black;
         c.fillText(text, canvas.width*i/9+40, canvas.height*j/4+110)
