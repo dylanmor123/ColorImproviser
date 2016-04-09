@@ -27,10 +27,10 @@ function resetCanvas (e) {
 
 function draw() {
   c.clearRect(0,0,canvas.width, canvas.height); 
-  for (var j=0; j<4; j++) {
-    for (var i=0; i<4; i++) {
+  for (var j=0; j<3; j++) {
+    for (var i=0; i<9; i++) {
       c.fillStyle = "hsl( " + Math.round((360*(j*4+i))/16) + ", 100%, 50%)";
-      c.fillRect( canvas.width * i / 4, canvas.height * j / 4, canvas.width/4, canvas.height/4 );
+      c.fillRect( canvas.width * i / 9, canvas.height * j / 3, canvas.width/9, canvas.height/3 );
     }
   }
   for(var i=0; i<touches.length; i++)
