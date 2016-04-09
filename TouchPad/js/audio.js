@@ -77,6 +77,7 @@ document.onkeydown = function(e) {
     var soundId = sounds[e.keyCode][0];
     if (soundId) document.getElementById(soundId).play();
     else console.log("key not mapped : code is", e.keyCode);
+    sounds[e.keyCode][1] = true;
 }
 
 document.onkeyup = function(e) {
@@ -84,6 +85,7 @@ document.onkeyup = function(e) {
     if (soundId) {document.getElementById(soundId).pause();
     	document.getElementById(soundId).currentTime = 0}
     else console.log("key not mapped : code is", e.keyCode);
+    sounds[e.keyCode][1] = false;
 }
 
 

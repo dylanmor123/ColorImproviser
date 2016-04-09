@@ -43,7 +43,7 @@ function draw() {
   var text
   for (var j=0; j<4; j++) {
     for (var i=0; i<9; i++) { //i = x, j = y
-      if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) {
+      if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) { 
         c.fillStyle = red;
         text="C";
       } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
