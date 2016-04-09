@@ -21,6 +21,7 @@ var blue = "#0033cc";
 var purple = "#cc33ff";
 var dark_grey = "#666666";
 var light_grey = "#cccccc"
+var black = "#000000";
 
 var canvas,
   c, // c is the canvas' context 2D
@@ -39,13 +40,11 @@ function resetCanvas (e) {
 
 function draw() {
   c.clearRect(0,0,canvas.width, canvas.height); 
+  
   for (var j=0; j<4; j++) {
     for (var i=0; i<9; i++) { //i = x, j = y
-      if(i==0 || j==3) {
-        c.fillStyle = white;
-      } else if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) {
+      if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) {
         c.fillStyle = red;
-      
       } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
         c.fillStyle = orange;
       } else if (i==7 && j==1) {
@@ -65,11 +64,20 @@ function draw() {
       } else {
       // c.fillStyle = "hsl( " + Math.round((360*(j*4+i))/16) + ", 100%, 50%)";
       c.fillStyle = blue;
-      
       }
-      c.fillRect( canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4 );
+
+      if ((!(i==0 || j==3))) {
+        c.fillRect( canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4 );
+      }
     }
   }
+  fontratio = 100 / 1277;
+  fontsize = canvas.width * fontratio;
+  c.font = fontsize.toString() + "px Georgia";
+  c.fillStyle = black;
+  c.fillText("G\u2077", 100*fontratio, (canvas.height/8)+20);
+  c.fillText("F\u2077", 100*fontratio, (canvas.height/8)*3+20);
+  c.fillText("C\u2077", 100*fontratio, (canvas.height/8)*5+20);
 
   for(var i=0; i<touches.length; i++)
   {
