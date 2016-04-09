@@ -16,7 +16,8 @@ var red = "#ff0000";
 var orange = "#ff5500";
 var dark_green = "#00802b";
 var light_green = "#33ff77";
-var yellow = "#ffff00";
+var yellow = "#e6e600";
+var light_yellow = "#ffff99"
 var blue = "#0033cc";
 var purple = "#cc33ff";
 var dark_grey = "#666666";
@@ -41,26 +42,33 @@ function resetCanvas (e) {
 function draw() {
   c.clearRect(0,0,canvas.width, canvas.height); 
   var text
-  for (var j=0; j<4; j++) {
+  for (var j=0; j<5; j++) {
     for (var i=0; i<9; i++) { //i = x, j = y
+<<<<<<< HEAD
       if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) { 
+=======
+      if ((i==5 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2) || (i==1 && j==4)) {
+>>>>>>> af0311e67568e35c108056263e253a43baa66831
         c.fillStyle = red;
         text="C";
-      } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
+      } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2) || (i==2 && j==4)) {
         c.fillStyle = orange;
         text="D";
-      } else if (i==7 && j==1) {
+      } else if ((i==7 && j==1) || (i==3 && j==4)) {
         c.fillStyle = dark_green;
         text="E\u1d47";
       } else if ((i==6 && j==0) || (i==3 && j==2)) {
         c.fillStyle = light_green;
         text="E";
-      } else if ((i==7 && j==0) || (i==1 && j==1) || (i==8 && j==1) || (i==4 && j==2)) {
+      } else if ((i==7 && j==0) || (i==1 && j==1) || (i==8 && j==1) || (i==4 && j==2) || (i==4 && j==4)) {
         c.fillStyle = yellow;
         text="F";
-      } else if ((i==1 && j==0) || (i==8 && j==0) || (i==2 && j==1) || (i==5 && j==2)) {
+      } else if ((i==1 && j==0) || (i==8 && j==0) || (i==2 && j==1) || (i==5 && j==2) || (i==6 && j==4)) {
         c.fillStyle = blue;
         text="G";
+      } else if (i==5 && j==4) {
+        c.fillStyle = light_yellow;
+        text="Fsharp"
       } else if ((i==2 && j==0) || (i==3 && j==1) || (i==6 && j==2)) {
         c.fillStyle = purple;
         text="A";
@@ -70,40 +78,40 @@ function draw() {
       } else if (i==3 && j==0) {
         c.fillStyle = light_grey;
         text="B"
-      } else {
+      }
+
+      else {
       // c.fillStyle = "hsl( " + Math.round((360*(j*4+i))/16) + ", 100%, 50%)";
       c.fillStyle = blue;
       }
 
       if ((!(i==0 || j==3))) {
-        c.fillRect( canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4 );
-        // c.fillStyle = white;
-        // c.strokeRect(canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4)
+        c.fillRect( canvas.width * i / 9, canvas.height * j / 5, canvas.width/9, canvas.height/5 );
         c.font = "80px Ariel";
         c.fillStyle = black;
-        c.fillText(text, canvas.width*i/9+40, canvas.height*j/4+110)
+        c.fillText(text, canvas.width*i/9+40, canvas.height*j/5+110)
       }
     }
   }
 
-  fontratio = 100 / 1277;
+  fontratio = 90 / 1277;
   fontsize = canvas.width * fontratio;
   c.font = fontsize.toString() + "px Ariel";
   c.fillStyle = black;
-  c.fillText("G\u2077", 100*fontratio, (canvas.height/8)+20);
-  c.fillText("F\u2077", 100*fontratio, (canvas.height/8)*3+20);
-  c.fillText("C\u2077", 100*fontratio, (canvas.height/8)*5+20);
+  c.fillText("G\u2077", 100*fontratio, (canvas.height/10)+30);
+  c.fillText("F\u2077", 100*fontratio, (canvas.height/10)*3+30);
+  c.fillText("C\u2077", 100*fontratio, (canvas.height/10)*5+30);
   //c.fillText("       1    2    3   4    5    6   7    1", 100*fontratio, (canvas.height/8)*7);
   fontratio = 55/705
   fontsize = canvas.height * fontratio;
-  c.fillText("1", (canvas.width/9)+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("2", (canvas.width/9)*2+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("3", (canvas.width/9)*3+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("4", (canvas.width/9)*4+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("5", (canvas.width/9)*5+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("6", (canvas.width/9)*6+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("7", (canvas.width/9)*7+canvas.width*0.04, (canvas.height/8)*7);
-  c.fillText("1", (canvas.width/9)*8+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("1", (canvas.width/9)+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("2", (canvas.width/9)*2+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("3", (canvas.width/9)*3+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("4", (canvas.width/9)*4+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("5", (canvas.width/9)*5+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("6", (canvas.width/9)*6+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("7", (canvas.width/9)*7+canvas.width*0.04, (canvas.height/10)*8-30);
+  c.fillText("1", (canvas.width/9)*8+canvas.width*0.04, (canvas.height/10)*8-30);
 
   fontratio = 30/705
   fontsize = canvas.height * fontratio;
