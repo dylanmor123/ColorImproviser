@@ -40,27 +40,36 @@ function resetCanvas (e) {
 
 function draw() {
   c.clearRect(0,0,canvas.width, canvas.height); 
-  
+  var text
   for (var j=0; j<4; j++) {
     for (var i=0; i<9; i++) { //i = x, j = y
       if ((i==4 && j==0) || (i==5 && j==1) || (i==1 && j==2) || (i==8 && j==2)) {
         c.fillStyle = red;
+        text="G";
       } else if ((i==5 && j==0) || (i==6 && j==1) || (i==2 && j==2)) {
         c.fillStyle = orange;
+        text="D";
       } else if (i==7 && j==1) {
         c.fillStyle = dark_green;
+        text="E\u1d47";
       } else if ((i==6 && j==0) || (i==3 && j==2)) {
         c.fillStyle = light_green;
+        text="E";
       } else if ((i==7 && j==0) || (i==1 && j==1) || (i==8 && j==1) || (i==4 && j==2)) {
         c.fillStyle = yellow;
+        text="F";
       } else if ((i==1 && j==0) || (i==8 && j==0) || (i==2 && j==1) || (i==5 && j==2)) {
         c.fillStyle = blue;
+        text="G";
       } else if ((i==2 && j==0) || (i==3 && j==1) || (i==6 && j==2)) {
         c.fillStyle = purple;
+        text="A";
       } else if ((i==4 && j==1) || (i==7 && j==2)) {
         c.fillStyle = dark_grey;
+        text="B\u1d47";
       } else if (i==3 && j==0) {
         c.fillStyle = light_grey;
+        text="B"
       } else {
       // c.fillStyle = "hsl( " + Math.round((360*(j*4+i))/16) + ", 100%, 50%)";
       c.fillStyle = blue;
@@ -68,6 +77,9 @@ function draw() {
 
       if ((!(i==0 || j==3))) {
         c.fillRect( canvas.width * i / 9, canvas.height * j / 4, canvas.width/9, canvas.height/4 );
+        c.font = "80px Ariel";
+        c.fillStyle = black;
+        c.fillText(text, canvas.width*i/9+40, canvas.height*j/4+110)
       }
     }
   }
@@ -82,7 +94,6 @@ function draw() {
   //c.fillText("       1    2    3   4    5    6   7    1", 100*fontratio, (canvas.height/8)*7);
   fontratio = 55/705
   fontsize = canvas.height * fontratio;
-  //c.fillText("C blues", (canvas.width/9)+canvas.width*0.04, (canvas.height/8)*7);
   c.fillText("1", (canvas.width/9)+canvas.width*0.04, (canvas.height/8)*7);
   c.fillText("2", (canvas.width/9)*2+canvas.width*0.04, (canvas.height/8)*7);
   c.fillText("3", (canvas.width/9)*3+canvas.width*0.04, (canvas.height/8)*7);
@@ -91,6 +102,10 @@ function draw() {
   c.fillText("6", (canvas.width/9)*6+canvas.width*0.04, (canvas.height/8)*7);
   c.fillText("7", (canvas.width/9)*7+canvas.width*0.04, (canvas.height/8)*7);
   c.fillText("1", (canvas.width/9)*8+canvas.width*0.04, (canvas.height/8)*7);
+
+  fontratio = 30/705
+  fontsize = canvas.height * fontratio;
+  // c.fillText("C", canvas.width*0.04, (canvas.height/8)*7);
 
   for(var i=0; i<touches.length; i++)
   {
