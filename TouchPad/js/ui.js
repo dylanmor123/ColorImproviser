@@ -71,13 +71,26 @@ function draw() {
       }
     }
   }
+
   fontratio = 100 / 1277;
   fontsize = canvas.width * fontratio;
-  c.font = fontsize.toString() + "px Georgia";
+  c.font = fontsize.toString() + "px Ariel";
   c.fillStyle = black;
   c.fillText("G\u2077", 100*fontratio, (canvas.height/8)+20);
   c.fillText("F\u2077", 100*fontratio, (canvas.height/8)*3+20);
   c.fillText("C\u2077", 100*fontratio, (canvas.height/8)*5+20);
+  //c.fillText("       1    2    3   4    5    6   7    1", 100*fontratio, (canvas.height/8)*7);
+  fontratio = 55/705
+  fontsize = canvas.height * fontratio;
+  //c.fillText("C blues", (canvas.width/9)+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("1", (canvas.width/9)+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("2", (canvas.width/9)*2+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("3", (canvas.width/9)*3+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("4", (canvas.width/9)*4+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("5", (canvas.width/9)*5+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("6", (canvas.width/9)*6+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("7", (canvas.width/9)*7+canvas.width*0.04, (canvas.height/8)*7);
+  c.fillText("1", (canvas.width/9)*8+canvas.width*0.04, (canvas.height/8)*7);
 
   for(var i=0; i<touches.length; i++)
   {
