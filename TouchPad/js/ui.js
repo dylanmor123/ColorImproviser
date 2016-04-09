@@ -1,4 +1,4 @@
-
+var soundskey = [90,88,67,86,66,78,77,188,65,83,68,70,71,72,74,75,81,87,69,82,84,89,85,73,49,50,51,52,53,54,55];
 // shim layer with setTimeout fallback
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
@@ -23,6 +23,7 @@ var purple = "#cc33ff";
 var dark_grey = "#666666";
 var light_grey = "#cccccc"
 var black = "#000000";
+var light_blue = "#e6ffff";
 
 var canvas,
   c, // c is the canvas' context 2D
@@ -82,11 +83,20 @@ function draw() {
       }
 
       if (!((i==0 || j==3) || (i==8 && j==4))) {
+        for(var k = 0; k < soundskey.length; k++) {
+          var soundsentry = sounds[soundskey[k]];
+          if (soundsentry[2] == i && soundsentry[3] == j && soundsentry[1]) {
+            c.fillStyle = light_blue;
+          }
+        }
         c.fillRect( canvas.width * i / 9, canvas.height * j / 5, canvas.width/9, canvas.height/5 );
         c.font = "80px Ariel";
         c.fillStyle = black;
         c.fillText(text, canvas.width*i/9+40, canvas.height*j/5+110)
       }
+
+
+
     }
   }
 
