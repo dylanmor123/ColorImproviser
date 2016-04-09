@@ -1,5 +1,15 @@
 var soundskey = [90,88,67,86,66,78,77,188,65,83,68,70,71,72,74,75,81,87,69,82,84,89,85,73,49,50,51,52,53,54,55];
 // shim layer with setTimeout fallback
+var d = new Date();
+var first = true;
+var second = false;
+// var starthr = d.getHours();
+// var startmin = d.getMinutes();
+// var startsec = d.getSeconds();
+// var startmil = d.getMilliseconds();
+var startTime = d.getTime();
+var currTime = 0;
+
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
   window.webkitRequestAnimationFrame ||
@@ -128,20 +138,88 @@ function draw() {
   fontsize = canvas.height * fontratio;
   // c.fillText("C", canvas.width*0.04, (canvas.height/8)*7);
 
-  for(var i=0; i<touches.length; i++)
-  {
-    var touch = touches[i]; 
-    c.beginPath(); 
-    c.fillStyle = "white";
-    c.fillText( " id : "+touch.pointerId+" x:"+touch.x+" y:"+touch.y, touch.x+30, touch.y-30); 
+  // for(var i=0; i<touches.length; i++)
+  // {
+  //   var touch = touches[i]; 
+  //   c.beginPath(); 
+  //   c.fillStyle = "white";
+  //   c.fillText( " id : "+touch.pointerId+" x:"+touch.x+" y:"+touch.y, touch.x+30, touch.y-30); 
 
-    c.beginPath(); 
-    c.strokeStyle = "cyan";
-    c.lineWidth = "6";
-    c.arc(touch.x, touch.y, 40, 0, Math.PI*2, true); 
-    c.stroke();
+  //   c.beginPath(); 
+  //   c.strokeStyle = "cyan";
+  //   c.lineWidth = "6";
+  //   c.arc(touch.x, touch.y, 40, 0, Math.PI*2, true); 
+  //   c.stroke();
+  // }
+  // //c.fillText("hello", 0,0); 
+  fontratio = 90 / 1277;
+  fontsize = canvas.width * fontratio;
+  
+  d = new Date();
+  currTime = d.getTime()
+  if(second) {
+    currTime -= 2210;
   }
-  //c.fillText("hello", 0,0); 
+  console.log((currTime-startTime))
+  // if (currTime-startTime == 2210) {
+  //   startTime = currTime;
+  // }
+  if (currTime-startTime < 2210) {
+
+  }
+  else if((currTime-startTime) > 2210 && (currTime-startTime)< 10228) {
+    if(!first && !second) {
+      second = true;
+    }
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*2/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("C\u2077", 100*fontratio, (canvas.height/10)*5+30);
+  } else if ((currTime-startTime) < 14237) {
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*1/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("F\u2077", 100*fontratio, (canvas.height/10)*3+30);
+  } else if ((currTime-startTime) < 18213) {
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*2/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("C\u2077", 100*fontratio, (canvas.height/10)*5+30);
+  } else if ((currTime-startTime) < 20209) {
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*0/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("G\u2077", 100*fontratio, (canvas.height/10)+30);
+  } else if ((currTime-startTime) < 22220) {
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*1/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("F\u2077", 100*fontratio, (canvas.height/10)*3+30);
+  } else if ((currTime-startTime) < 24387) {
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*2/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("C\u2077", 100*fontratio, (canvas.height/10)*5+30);
+  } else if ((currTime-startTime) < 26186) {
+    c.fillStyle = black;
+    c.fillRect(canvas.width * 0/9, canvas.height*0/5,canvas.width/9,canvas.height/5);
+    c.fillStyle = white;
+    c.font = fontsize.toString() + "px Ariel";
+    c.fillText("G\u2077", 100*fontratio, (canvas.height/10)+30);
+    if(first) {
+      first = false;
+    }
+  } else {
+    d = new Date();
+    startTime = d.getTime()-2210-2210;
+  }
+
 
   requestAnimFrame(draw);
 }

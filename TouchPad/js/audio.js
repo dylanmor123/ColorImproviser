@@ -113,7 +113,7 @@ SoundEvent.prototype.setFilter = function() {
 
 SoundEvent.prototype.playSound = function() {
 	var sourceNode = audioContext.createBufferSource();
-	sourceNode.buffer = technoBuffer;
+	// sourceNode.buffer = technoBuffer;
 	sourceNode.loop = true;
 	this.filter = audioContext.createBiquadFilter();
 	this.setFilter();
@@ -143,5 +143,5 @@ function setupAudio() {
 	    	appendOutput( "Sound ready." );
 		} );
 	}
-	request.send();
+	// request.send();
 }
