@@ -17,7 +17,13 @@ We hope that by using this colorful interface, students will build stronger conn
 which chords, and which notes are common amongst different chords in the blues form. Also, this would be a useful for building 
 an aural and rhythmic relationship with the blues form.
 
-## Who, When, Where?
+## When, Where?
 April 9th, 2016  
 Music Hack 2016 hosted by The People's Music School - 1st Place  
-2112 at Fort Knox Studios  
+2112 at Fort Knox Studios    
+
+## Team Members
+Alex Fang   
+Eric Hao  
+Dylan Ong  
+Yuki Zou  
