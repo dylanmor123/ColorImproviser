@@ -1,6 +1,6 @@
 //letters on keyboard in ASCII, bottom to top row, left to right
 var soundskey = [90,88,67,86,66,78,77,188,65,83,68,70,71,72,74,75,81,87,69,82,84,89,85,73,49,50,51,52,53,54,55];
-var d = new Date();
+var d = new Date(); // getTime() returns time of when the date object was made
 var first = true;
 var second = false;
 // var starthr = d.getHours();
@@ -170,8 +170,8 @@ function draw() {
     fontratio = 90 / 1277;
     fontsize = canvas.width * fontratio;
     
-    d = new Date();
-    currTime = d.getTime()
+    d = new Date(); 
+    currTime = d.getTime();
     if(second) {
         currTime -= 2210;
     }
@@ -340,6 +340,7 @@ function init(){
     //play background 12-bar blues
     var audio = new Audio('./sounds/blues.wav');
     audio.play();
+    d = new Date();
     startTime = d.getTime();
     console.log("init, start time: " + startTime);
     requestAnimFrame(draw);
