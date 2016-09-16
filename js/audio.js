@@ -41,8 +41,8 @@ var sounds = {
 
 
 //play background 12-bar blues
-var audio = new Audio('./sounds/blues.wav');
-audio.play();
+//var audio = new Audio('./sounds/blues.wav');
+//audio.play();
 
 // var flash90 = false;
 // var flash88 = false;
