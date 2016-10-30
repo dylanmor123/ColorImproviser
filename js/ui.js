@@ -339,11 +339,14 @@ function init(){
 
     //play background 12-bar blues
     var audio = new Audio('./sounds/blues.wav');
-    audio.play();
-    d = new Date();
-    startTime = d.getTime();
+    audio.addEventListener('canplaythrough', function() {
+        d = new Date();
+        startTime = d.getTime();
+        audio.play();
+        requestAnimFrame(draw);
+    }, false);
     console.log("init, start time: " + startTime);
-    requestAnimFrame(draw);
+    
 }
 
 confirm("Welcome to an introduction to improvsing on the 12-bar blues! Soon, a track with the 12-bar blues in the key of C will play.\n "
