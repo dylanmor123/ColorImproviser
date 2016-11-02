@@ -1,5 +1,7 @@
 //letters on keyboard in ASCII, bottom to top row, left to right
 var soundskey = [90,88,67,86,66,78,77,188,65,83,68,70,71,72,74,75,81,87,69,82,84,89,85,73,49,50,51,52,53,54,55];
+var midiNums = [60,62,63,64,65,66,67,69,70,71,72,74,75,76,77,79];
+var trumpetFiles = {};
 var d = new Date(); // getTime() returns time of when the date object was made
 var first = true;
 var second = false;
@@ -329,14 +331,22 @@ function setupCanvas() {
 
 }
 
-function init(){
-    setupCanvas();
-    setupAudio();
+//somebody will pass in mininums to this
+function load_recur(audionums, cb) {
+    if (audionums.length === 0) {
+        cb();
+    }
+    else {
+        var n = audionums.shift();
+        var filepath = './trumpetsounds/' + String(n) + '.wav';
+        console.log(filepath);
+        var tempAudio = new Audio(filepath);
+        trumpetFiles[n] = tempAudio;
+        tempAudio.addEventListener('canplaythrough', load_recur(audionums, cb), false);
+    }
+}
 
-
-    window.onorientationchange = resetCanvas;
-    window.onresize = resetCanvas;
-
+function audioCallback() {
     //play background 12-bar blues
     var audio = new Audio('./sounds/blues.wav');
     audio.addEventListener('canplaythrough', function() {
@@ -345,15 +355,25 @@ function init(){
         audio.play();
         requestAnimFrame(draw);
     }, false);
+}
+
+function init(){
+    setupCanvas();
+    setupAudio();
+
+    window.onorientationchange = resetCanvas;
+    window.onresize = resetCanvas;
+
+    load_recur(midiNums, audioCallback);
+
     console.log("init, start time: " + startTime);
-    
 }
 
 confirm("Welcome to an introduction to improvsing on the 12-bar blues! Soon, a track with the 12-bar blues in the key of C will play.\n "
     + "A little about the 12-bar blues: it begins with 4 bars of the I chord, 2 bars of the IV chord, 2 bars of the I chord, then V-IV-I-V with one bar each.\n"
-    + "The normal 12-bar blues might vary the last few chords a little, but it gets across the same idea!");
+    + "Check the instructions in the README for more detail!");
 confirm("Your keyboard is your instrument! Each row pertains to a certain scale under the given harmony, and we'll highlight which harmony is playing at the time.\n"
-    + "The row of number is the C blues scale, which can be played at any time during the blues, regardless of harmony.\n"
+    + "The row of numbers is the C blues scale, which can be played at any time during the blues, regardless of harmony.\n"
     + "Once you hit OK, get familiar to the timing of the 12-bar blues, and hear what sounds good. Have fun improvising!");
 
 window.addEventListener("load", init );
